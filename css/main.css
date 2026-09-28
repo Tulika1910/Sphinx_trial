@@ -1,0 +1,107 @@
+/* ==========================================================================
+   SPHINX '26 - DYSTOPIAN CYBERPUNK DESIGN SYSTEM
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+:root {
+  /* Color Palette - Dystopian Ember & Slate */
+  --bg-dark: #07090e;
+  --bg-card: rgba(15, 18, 26, 0.75);
+  --bg-card-hover: rgba(26, 31, 46, 0.85);
+  --bg-modal: rgba(10, 12, 18, 0.92);
+  
+  --color-primary: #ffaa33;
+  --color-primary-glow: rgba(255, 170, 51, 0.4);
+  --color-accent-amber: #f39c12;
+  --color-accent-gold: #ffe082;
+  --color-cyber-red: #ff2a5f;
+  --color-cyber-blue: #00e5ff;
+  
+  --text-main: #e0d7c5; /* Off-white for title */
+  --text-muted: #9aa1b2;
+  --text-dim: #5a6275;
+  
+  --border-glass: rgba(255, 170, 51, 0.15);
+  --border-glass-bright: rgba(255, 170, 51, 0.45);
+  
+  /* Fonts */
+  --font-display: 'Anton', 'Syne', sans-serif;
+  --font-heading: 'Plus Jakarta Sans', sans-serif; /* Cleaner sans serif for heading */
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.25s var(--ease-smooth);
+  --transition-normal: 0.45s var(--ease-smooth);
+}
+
+/* Reset & Global */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Ambient Canvas & Vignette Overlay */
+#ambient-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: 
+    radial-gradient(circle at 75% 50%, rgba(255, 170, 51, 0.07) 0%, transparent 55%),
+    radial-gradient(circle at 20% 80%, rgba(255, 42, 95, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Application Container */
+.app-viewport {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 1.5rem 3rem 2rem 3rem;
+}
+
+@media (max-width: 1200px) {
+  .app-viewport {
+    padding: 1rem 1.5rem;
+  }
+}
